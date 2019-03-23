@@ -1,0 +1,30 @@
+p{
+  font-size: 100px;
+}
+.center{
+  border: 1px solid #aaa;
+  width: 400px;
+  text-align: center;
+  border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+}
+
+.parent{
+  padding: 20px;              /* 余白指定 */
+  text-align:  center;        /* 中央寄せ */
+  height: 100px;
+}
+ .inner{
+   display:inline-block;
+   padding:10px;
+}
+
+.tablecell{
+  text-align: center;
+  display: table-cell;
+  vertical-align: middle;
+  width: 200px;
+  height: 250px;
+  margin: 20px;
+}
