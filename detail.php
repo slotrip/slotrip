@@ -41,5 +41,6 @@ try{
 //詳細データ
 print_r($detail_array);
 
+echo "test";
 
 ?>
