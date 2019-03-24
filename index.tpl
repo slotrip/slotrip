@@ -6,30 +6,22 @@
 <link rel="stylesheet" type="text/css" href="style/style.css">
 </head>
 <body>
-<div class="parent">
-  <div class="inner">
-    <div class="tablecell">
-      <div class="photo1">
-        <img src="images/ryokou.jpg" width="320px" height="200px" border="1px">
+ <div class="wrapper">
+  <div class="parent">
+    <img src="images/slo-trip@3x.png" width="320px" height="200px" border="1px">
+    <div id="dram" class="clearfix">
+      <p>☆</p>
       </div>
-      <div border="2">
-        <div id="dram" class="center">
-          <p>☆</p>
-        </div>
-          <tr>
-            <button type="button" type = “submit” value="" onClick="dramstop(0,lists)">おす</button><!--引数でリストデータ渡しました-->
-          </tr>
-            <button type="button" value="" onClick="dramreset()">リセット</button>
-          </div>
-        </div>
-      </div>
+      <button id="start" type="button" value="" onClick="dramreset()">まわす</button>
+      <tr>
+        <button id="stop" type="button" type = “submit” value="" onClick="dramstop(0,lists)">ストップ！</button><!--引数でリストデータ渡しました-->
+      </tr>
     </div>
-
-    <div class="list">
-      <!-- <p>スロットと一覧で各自マージン取ったりして、良い感じにしていただけますか…。</p> -->
-      <div id="listdata"></div>
-    </div>
-
+  </div>
+  <div class="list">
+    <div class="dev1" id="listdata"></div>
+  </div>
+ </div>
 
 <script language="JavaScript">
 //keywords = new Array("とうきょう","ぐんま","栃木","いばらき","さいたま","かながわ");
@@ -106,10 +98,12 @@ function getListData(lists,key_id){
     if(lists[key]['key_id'] == key_id){
 
       //リストに表示したいタグはここの変数に追加していってください。タグはとりあえずdivにしているので変更していただけると…
+      listhtml += '<div class="dev1">';
       listhtml += '<div><a href="./detail.php?list_id=' + lists[key]['list_id'] + '">' + lists[key]['title'] + '</a></div>';
       listhtml += '<div>' + lists[key]['catch_text'] + '</div>';
       listhtml += '<div>' + lists[key]['prefecture'] + '</div>';
       listhtml += '<div>' + lists[key]['address_desc'] + '</div>';
+      listhtml += '</div>'
       listhtml += '<br>';
 
     }
