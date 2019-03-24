@@ -13,7 +13,7 @@ p{
 .parent{
   padding: 20px;              /* 余白指定 */
   text-align:  center;        /* 中央寄せ */
-  height: 100px;
+  /* height: 100px; 高さが小さすぎるので…　高さは指定しなくても勝手に広がるので大丈夫なはずです*/
 }
  .inner{
    display:inline-block;
@@ -27,4 +27,8 @@ p{
   width: 200px;
   height: 250px;
   margin: 20px;
+}
+.list{
+  width:90%;
+  margin:10px 5%;
 }
