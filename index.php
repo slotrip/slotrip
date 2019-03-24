@@ -1,5 +1,7 @@
 <?
 
+echo "a";
+
 require_once("./db.inc");
 
 $kw = '';
