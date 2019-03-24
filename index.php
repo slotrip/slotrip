@@ -2,6 +2,12 @@
 
 require_once("./db.inc");
 
+$kw = '';
+if(isset($_GET['kw'])){
+    $kw = $_GET['kw'];
+}
+echo $kw;
+
 try{
 
     //キーワードデータ取得
@@ -10,7 +16,7 @@ try{
 	$stmt->execute();
 
     $key_array = array();
-    $num = 1;
+    // $num = 1;
 	while(true){
 		$rec = $stmt->fetch(PDO::FETCH_ASSOC);
 
@@ -20,20 +26,21 @@ try{
 
         $tmp_arr['key_id'] = $rec['key_id'];
         $tmp_arr['keyword'] = $rec['keyword'];
-        $key_array[$num ] = $tmp_arr;
-        $num++;
+        $key_array[] = $tmp_arr;
+        //$key_array[$num] = $tmp_arr;
+        // $num++;
 
 	}
 
 
 
     //一覧データ取得
-	$sql = 'SELECT list_id,title, catch_text, key_id, prefecture, address, address_desc FROM LIST WHERE 1 ORDER BY list_id'; //1は全てという意味
+	$sql = 'SELECT list_id,title,catch_text,key_id, prefecture,address,address_desc FROM LIST WHERE 1 ORDER BY list_id';
 	$stmt = $dbh->prepare($sql);
 	$stmt->execute();
 
     $list_array = array();
-    $num = 1;
+    // $num = 1;
 	while(true){
 		$rec = $stmt->fetch(PDO::FETCH_ASSOC);
 
@@ -43,12 +50,14 @@ try{
 
         $tmp_arr['list_id'] = $rec['list_id'];
         $tmp_arr['title'] = $rec['title'];
+        $tmp_arr['catch_text'] = $rec['catch_text'];
         $tmp_arr['key_id'] = $rec['key_id'];
         $tmp_arr['prefecture'] = $rec['prefecture'];
         $tmp_arr['address'] = $rec['address'];
         $tmp_arr['address_desc'] = $rec['address_desc'];
-        $list_array[$num ] = $tmp_arr;
-        $num++;
+        //$list_array[$num] = $tmp_arr;
+        $list_array[] = $tmp_arr;
+        // $num+;
 
 	}
 
@@ -67,13 +76,13 @@ try{
 
 //js用の値
 $key_json = json_encode($key_array);
-print_r($key_json);
+//print_r($key_json);
 
 //一覧配列
 //print_r($list_array);
-
+$list_json = json_encode($list_array);
 
 //テンプレート
-require_once("./example1.html")
+require_once("./index.tpl")
 
 ?>
