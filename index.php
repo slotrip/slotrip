@@ -1,6 +1,6 @@
 <?
 
-echo "aaa";
+//echo "aaa";
 
 require_once("./db.inc");
 
@@ -8,7 +8,7 @@ $kw = '';
 if(isset($_GET['kw'])){
     $kw = $_GET['kw'];
 }
-echo $kw;
+//echo $kw;
 
 try{
 
