@@ -1,6 +1,6 @@
 <?
 
-echo "a";
+echo "aaa";
 
 require_once("./db.inc");
 
